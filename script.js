@@ -1,13 +1,21 @@
-function agregarTarea() {
-    const texto = document.getElementById('tarea').value;
-    if (texto !== "") {
-        const li = document.createElement("li");
-        li.textContent = texto;
-        document.getElementById("lista").appendChild(li);
-        document.getElementById("tarea").value = "";
-    }
-}
 
+// Agregar una tarea a la lista
+document.getElementById("agregar").addEventListener("click", function () {
+    const tarea = document.getElementById("tarea").value.trim();
+
+    if (tarea === "") {
+        alert("Por favor ingresa una tarea válida.");
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = tarea;
+    document.getElementById("lista").appendChild(li);
+    document.getElementById("tarea").value = "";
+});
+
+
+// Limpiar la lista de tareas 
 document.getElementById("limpiar").addEventListener("click", function () {
     document.getElementById("lista").innerHTML = "";
 });
